@@ -25,7 +25,7 @@ LVentralLateroVentralConnectivity = [];
 RVentralLateroVentralConnectivity = [];
 cortexonly = setdiff(1:253, [109:119 122:123 235:245 248:253])
 
-
+//add patient data
 for a = 1:length(patients.connectome)
     resectedParcels = patients.connectome(a).resectedparcels;
     for x = 1:length(cortexonly)
@@ -63,7 +63,7 @@ end
 
 subject = strcat(subject, '(patient)');
 
-
+//add control subject data
 for a = 1:length(controls.connectome)
     for x = 1:length(cortexonly)
         location = cortexonly(x);
