@@ -172,7 +172,12 @@ multiparameters = [ParcelLocation(:),aveContZRank(:),modalContZRank(:),wDegZRank
 
 %% Neural network on prepared data
 
-NumberHiddenNodes=1;
+[COEFF,SCORE,latent,tsquare] = pca(multiparameters);
+ PCA=cumsum(latent)./sum(latent);
+ PCA(PCA>0.99)=[];
+NumberHiddenNodes=length(PCA);
+
+% NumberHiddenNodes=1;
 
 hiddenLayerSize=[NumberHiddenNodes];
  net=patternnet(hiddenLayerSize);
